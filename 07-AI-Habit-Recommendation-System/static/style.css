@@ -1,0 +1,189 @@
+/* -----------------------------
+   PASTEL BACKGROUND GRADIENT
+------------------------------ */
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #ffe8f7, #e9f4ff, #fff4e6);
+    background-size: 400% 400%;
+    animation: bgMove 18s ease infinite;
+    overflow-x: hidden;
+}
+
+@keyframes bgMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* -----------------------------
+   FLOATING BACKGROUND SHAPES
+------------------------------ */
+.shape {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    filter: blur(70px);
+    opacity: 0.6;
+    animation: float 10s infinite alternate ease-in-out;
+}
+
+.s1 { background: #ffb6c7; top: -40px; left: -40px; }
+.s2 { background: #c9f1ff; bottom: -50px; right: -30px; animation-duration: 12s; }
+.s3 { background: #ffd7a8; top: 40%; left: 70%; animation-duration: 14s; }
+
+@keyframes float {
+    from { transform: translateY(-20px); }
+    to { transform: translateY(20px); }
+}
+
+/* -----------------------------
+   MAIN CONTAINER
+------------------------------ */
+.container {
+    width: 500px;
+    margin: 80px auto;
+    padding: 35px;
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: 20px;
+    backdrop-filter: blur(18px);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+    position: relative;
+    animation: fadeIn 0.7s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* -----------------------------
+   HEADER SECTION
+------------------------------ */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.habit-icon {
+    font-size: 50px;
+    color: #6C63FF;
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
+}
+
+h1 {
+    margin: 10px 0 5px;
+    font-weight: 700;
+    color: #333;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #666;
+}
+
+/* -----------------------------
+   INPUT SECTION
+------------------------------ */
+label {
+    font-weight: 600;
+    color: #444;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
+    background: #ffffffc4;
+    border-radius: 12px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    transition: 0.2s ease;
+}
+
+.input-box:focus-within {
+    border-color: #6C63FF;
+    box-shadow: 0 0 8px rgba(108,99,255,0.3);
+}
+
+.input-icon {
+    font-size: 20px;
+    color: #6C63FF;
+    margin-right: 10px;
+}
+
+input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 10px 0;
+    font-size: 16px;
+    outline: none;
+}
+
+/* -----------------------------
+   BUTTON
+------------------------------ */
+.submit-btn {
+    width: 100%;
+    background: #6C63FF;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submit-btn i {
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+.submit-btn:hover {
+    background: #564dff;
+    transform: translateY(-2px);
+}
+
+/* -----------------------------
+   RESULT BOX
+------------------------------ */
+.result-box {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 16px;
+    background: rgba(226, 255, 239, 0.9);
+    border-left: 6px solid #2ecc71;
+    animation: slideUp 0.4s ease-in-out;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.result-icon {
+    font-size: 28px;
+    color: #27ae60;
+}
+
+.result-box h3 {
+    margin: 5px 0;
+    color: #27ae60;
+}
+
+.result-box p {
+    font-size: 15px;
+    color: #333;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Correlation Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="card">
+
+    <h1>Correlation Analyzer</h1>
+    <p class="subtitle">Enter two datasets to compute Pearson & Spearman correlation</p>
+
+    <form method="POST">
+
+        <label>Dataset 1 (comma separated)</label>
+        <input type="text" name="data1" 
+               placeholder="Example: 10, 20, 30, 40"
+               value="{{ data1 }}">
+
+        <label>Dataset 2 (comma separated)</label>
+        <input type="text" name="data2" 
+               placeholder="Example: 15, 18, 35, 45"
+               value="{{ data2 }}">
+
+        <button type="submit">Calculate Correlation</button>
+    </form>
+
+    
+    {% if pearson is not none %}
+    <div class="result-box">
+        <h3>Results</h3>
+
+        {% if pearson is string %}
+            <!-- For error messages -->
+            <p><b>Error:</b> {{ pearson }}</p>
+        {% else %}
+            <p><b>Pearson Correlation:</b> {{ pearson }}</p>
+            <p><b>Spearman Correlation:</b> {{ spearman }}</p>
+        {% endif %}
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

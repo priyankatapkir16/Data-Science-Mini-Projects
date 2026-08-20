@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Habit Helper</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <!-- Unicons Icon Pack -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+</head>
+<body>
+
+<!-- Floating background shapes -->
+<div class="shape s1"></div>
+<div class="shape s2"></div>
+<div class="shape s3"></div>
+
+<div class="container">
+
+    <div class="header">
+        <i class="uil uil-sun habit-icon"></i>
+        <h1>Habit Recommendation</h1>
+        <p class="subtitle">Get simple daily habit improvement tips</p>
+    </div>
+
+    <form method="POST" class="input-section">
+        <label>Your Habit</label>
+
+        <div class="input-box">
+            <i class="uil uil-edit input-icon"></i>
+            <input type="text" name="habit" placeholder="Example: I sleep late" value="{{ habit_input }}">
+        </div>
+
+        <button class="submit-btn">
+            <i class="uil uil-magic-wand"></i> Get Suggestion
+        </button>
+    </form>
+
+    {% if suggestion %}
+    <div class="result-box">
+        <i class="uil uil-lightbulb-alt result-icon"></i>
+        <h3>Recommendation</h3>
+        <p>{{ suggestion }}</p>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

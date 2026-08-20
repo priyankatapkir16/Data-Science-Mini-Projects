@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Mini Classifier</h1>
+    <p class="subtitle">Logistic Regression & Naive Bayes</p>
+
+    <form method="POST">
+
+        <label>Study Hours</label>
+        <input type="number" name="study" step="0.1"
+               value="{{ request.form.study }}"
+               placeholder="Enter study hours" required>
+
+        <label>Sleep Hours</label>
+        <input type="number" name="sleep" step="0.1"
+               value="{{ request.form.sleep }}"
+               placeholder="Enter sleep hours" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if result_lr is not none %}
+    <div class="result-box">
+        <h3>Prediction Result</h3>
+        <p><strong>Logistic Regression:</strong> {{ result_lr }}</p>
+        <p><strong>Naive Bayes:</strong> {{ result_nb }}</p>
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Sentiment Analysis Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Mini Sentiment Analysis Tool</h1>
+        <form method="POST">
+            <input type="text" name="input_text" placeholder="Enter text here..." value="{{ results.text if results }}" required>
+            <button type="submit">Analyze</button>
+        </form>
+
+        {% if results %}
+        <div class="results">
+            <h2>Results:</h2>
+            <p><strong>Input Text:</strong> {{ results.text }}</p>
+            <p>
+                <strong>VADER Sentiment:</strong> 
+                <span class="badge {{ results.vader_sentiment|lower }}">{{ results.vader_sentiment }}</span>
+                (Score: {{ results.vader_score }})
+            </p>
+            <p>
+                <strong>AFINN Sentiment:</strong> 
+                <span class="badge {{ results.afinn_sentiment|lower }}">{{ results.afinn_sentiment }}</span>
+                (Score: {{ results.afinn_score }})
+            </p>
+            <p>
+                <strong>Rule-Based Sentiment:</strong> 
+                <span class="badge {{ results.rule_sentiment|lower }}">{{ results.rule_sentiment }}</span>
+            </p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

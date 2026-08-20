@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini K-Means Clustering</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="card glass-card">
+    <h1>Mini K-Means Clustering</h1>
+    <p class="subtitle">Cluster synthetic animal weight vs height points</p>
+
+    <form method="POST">
+        <label>Number of Clusters (k)</label>
+        <input type="number" name="k_clusters" min="1" max="5" value="{{ k }}" required>
+        <button type="submit">Run Clustering</button>
+    </form>
+
+    {% if result_msg %}
+    <div class="result-box">
+        <p>{{ result_msg }}</p>
+    </div>
+    {% endif %}
+
+    <div class="cluster-box">
+        <h3>Cluster Visualization</h3>
+        <img src="{{ url_for('static', filename='cluster.png') }}" alt="Cluster Plot">
+    </div>
+</div>
+
+</body>
+</html>
